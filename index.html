@@ -1,11 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <h1> NYC Airbnb 2021 Data Insights and Analysis </h1>
+
+
+    <h3> Introduction </h3>
+
+
+    <p> Our project aims to conduct an in-depth examination of New York City Airbnb listings, 
+        leveraging publicly available data to reveal insights into patterns, trends, and factors 
+        shaping the short-term rental market in one of the world's most populous cities. Given the 
+        rise of the sharing economy and the increasing popularity of platforms like Airbnb, understanding 
+        the dynamics of listings is crucial. This research benefits hosts seeking to optimize their offerings, 
+        travelers searching for suitable accommodations, policymakers regulating the industry, and stakeholders 
+        in the hospitality sector looking to make strategically informed decisions.
+    </p>
+
+    <h3> Data Overview </h3>
+    <p>
+        Our analysis utilizes the Inside Airbnb: NYC dataset from Kaggle called `NYC_Airbnb.csv` to conduct a comprehensive analysis of New York
+        City Airbnb listings to uncover patterns, trends, and market factors. The Inside Airbnb: NYC dataset from Kaggle 
+        consists of 37,000+ observations and 74 attributes, covering both categorical and continuous variables. Our final cleaned dataset consists of 37,410 rows and 25 columns. 
+        The dataset includes essential details such as host information, room type, accommodations, neighborhood
+        information, pricing, availability, and guest reviews. The detail information about the features are listed in the following table:
+    </p>
+
+    <div class="center">
+        <table class="tg">
+            <thead>
+                <tr>
+                    <th class="tg-0lax">Variable Name</th>
+                    <th class="tg-0lax">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tg-0lax">id</td>
+                    <td class="tg-0lax">Listing ID</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">listing_url</td>
+                    <td class="tg-0lax">Listing URL</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">name</td>
+                    <td class="tg-0lax">Listing Name</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">latitude</td>
+                    <td class="tg-0lax">Latitude of the listing</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">longitude</td>
+                    <td class="tg-0lax">Longitude of the listing</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">last_scraped</td>
+                    <td class="tg-0lax">Date that the information was last scraped</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">host_id</td>
+                    <td class="tg-0lax">Host ID</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">host_name</td>
+                    <td class="tg-0lax">Host Name</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">host_listings_count</td>
+                    <td class="tg-0lax">Number of Listings Held by the Host</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">neighbourhood_cleansed</td>
+                    <td class="tg-0lax">Neighbourhood</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">neighbourhood_group_cleansed</td>
+                    <td class="tg-0lax">Neighbourhood Group</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">room_type</td>
+                    <td class="tg-0lax">Room Type</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">accommodates</td>
+                    <td class="tg-0lax">Number of Accommodates</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">price</td>
+                    <td class="tg-0lax">Price of the Listing</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">minimum_nights</td>
+                    <td class="tg-0lax">Minimum Number of Nights</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">maximum_nights</td>
+                    <td class="tg-0lax">Maximum Number of Nights</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">number_of_reviews</td>
+                    <td class="tg-0lax">Number of Reviews</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">review_scores_rating</td>
+                    <td class="tg-0lax">Overall Rating Review Score </td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">review_scores_accuracy</td>
+                    <td class="tg-0lax">Accuracy Review Score</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">review_scores_cleanliness</td>
+                    <td class="tg-0lax">Cleanliness Review Score</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">review_scores_checkin</td>
+                    <td class="tg-0lax">Checkin Review Score</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">review_scores_communication</td>
+                    <td class="tg-0lax">Communication Review Score</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">review_scores_location</td>
+                    <td class="tg-0lax">Location Review Score</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">review_scores_value</td>
+                    <td class="tg-0lax">Value Review Score</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">reviews_per_month</td>
+                    <td class="tg-0lax">Average Number of Reviews per Month</td>
+                  </tr>
+            </tbody>
+        </table>
+
+
+        <h3> Introduction </h3>
 </body>
+
 </html>
