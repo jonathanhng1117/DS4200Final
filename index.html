@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -12,7 +13,7 @@
 
 
     <h3> Introduction </h3>
-
+    <p></p>
 
     <p> Our project aims to conduct an in-depth examination of New York City Airbnb listings, 
         leveraging publicly available data to reveal insights into patterns, trends, and factors 
@@ -36,8 +37,8 @@
         <table class="tg">
             <thead>
                 <tr>
-                    <th class="tg-0lax">Variable Name</th>
-                    <th class="tg-0lax">Details</th>
+                    <th class="tg-0lax"><b>Variable Name</b></th>
+                    <th class="tg-0lax"><b>Details</b></th>
                 </tr>
             </thead>
             <tbody>
@@ -143,9 +144,22 @@
                   </tr>
             </tbody>
         </table>
+    </div>
+
+        <h3> Neighborhood Map </h3>
+
+        <div class = 'center'>
+            <iframe src="chloropleth.html" width="80%" height="400px" frameborder="0"></iframe>
+        </div>
+
+        <div class = 'center'>
+            <iframe src="scatter_altair.html" width="80%" height="400px" frameborder="0"></iframe>
+        </div>
 
 
-        <h3> Introduction </h3>
+        <div class = 'center'>
+            <iframe src="scatter.html" width="80%" height="400px" frameborder="0"></iframe>
+        </div>
 </body>
 
 </html>
