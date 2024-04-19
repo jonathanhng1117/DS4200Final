@@ -1,239 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NYC Airbnb 2021 Data Insights and Analysis</title>
     <link href="style.css" rel="stylesheet" />
-</head>
+  </head>
 
-<body>
-    <h1> NYC Airbnb 2021 Data Insights and Analysis </h1>
+  <body>
+    <h1>NYC Airbnb 2021 Data Insights and Analysis</h1>
 
+    <h3>Introduction</h3>
 
-    <h3> Introduction </h3>
-    <p></p>
-
-    <p> Our project aims to conduct an in-depth examination of New York City Airbnb listings, 
-        leveraging publicly available data to reveal insights into patterns, trends, and factors 
-        shaping the short-term rental market in one of the world's most populous cities. Given the 
-        rise of the sharing economy and the increasing popularity of platforms like Airbnb, understanding 
-        the dynamics of listings is crucial. This research benefits hosts seeking to optimize their offerings, 
-        travelers searching for suitable accommodations, policymakers regulating the industry, and stakeholders 
-        in the hospitality sector looking to make strategically informed decisions.
+    <p>
+      Our project aims to conduct an in-depth examination of New York City
+      Airbnb listings, leveraging publicly available data to reveal insights
+      into patterns, trends, and factors shaping the short-term rental market in
+      one of the world's most populous cities. Given the rise of the sharing
+      economy and the increasing popularity of platforms like Airbnb,
+      understanding the dynamics of listings is crucial. By focusing on
+      benefiting travelers seeking accommodations in New York City, our research
+      provides visually accessible insights to empower them to make informed
+      decisions about their lodging options.
     </p>
 
     <p>
-      The following links connect to journals that have done similar work in analyzing NYC Airbnb data insights. 
-      You may need an institution login to view the papers:
-      <ul>
-        <li><a href="https://doi.org/10.1108/ITP-10-2018-0481">Spatial And Socioeconomic Analysis</a> </li>
-        <li><a href="https://doi-org.ezproxy.neu.edu/10.1177/1938965519890578">Agglomeration Effect</a> </li>
-      </ul>
+      The following links lead to academic journals that have conducted similar
+      analyses on NYC Airbnb data insights. Access to the papers may require an
+      institutional login:
     </p>
+    <ul>
+      <li>
+        <a href="https://doi.org/10.1108/ITP-10-2018-0481" target="_blank"
+          >Spatial And Socioeconomic Analysis</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://doi-org.ezproxy.neu.edu/10.1177/1938965519890578"
+          target="_blank"
+          >Agglomeration Effect</a
+        >
+      </li>
+    </ul>
 
-    <h3> Data Overview </h3>
+    <h3>Data Overview</h3>
     <p>
-        Our analysis utilizes the Inside Airbnb: NYC dataset from Kaggle called `NYC_Airbnb.csv` to conduct a comprehensive analysis of New York
-        City Airbnb listings to uncover patterns, trends, and market factors. The Inside Airbnb: NYC dataset from Kaggle 
-        consists of 37,000+ observations and 74 attributes, covering both categorical and continuous variables. Our final cleaned dataset consists of 37,410 rows and 25 columns. 
-        The dataset includes essential details such as host information, room type, accommodations, neighborhood
-        information, pricing, availability, and guest reviews. The detail information about the features are listed in the following table:
+      Our analysis utilizes the Inside Airbnb: NYC dataset from Kaggle called
+      `NYC_Airbnb.csv` to conduct a comprehensive data analysis of New York City
+      Airbnb listings. The Inside Airbnb: NYC dataset from Kaggle consists of
+      over 37,000 observations and 74 attributes, covering both categorical and
+      continuous variables. Our final cleaned dataset consists of 37,410 rows
+      and 25 columns. The dataset includes essential details such as host
+      information, room type, neighborhood information, pricing, availability,
+      and guest reviews. The detailed information about the features is listed
+      in the following table:
     </p>
 
     <div class="center">
-        <table class="tg">
-            <thead>
-                <tr>
-                    <th class="tg-0lax"><b>Variable Name</b></th>
-                    <th class="tg-0lax"><b>Details</b></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="tg-0lax">id</td>
-                    <td class="tg-0lax">Listing ID</td>
-                </tr>
-                <tr>
-                    <td class="tg-0lax">listing_url</td>
-                    <td class="tg-0lax">Listing URL</td>
-                </tr>
-                <tr>
-                    <td class="tg-0lax">name</td>
-                    <td class="tg-0lax">Listing Name</td>
-                </tr>
-                <tr>
-                    <td class="tg-0lax">latitude</td>
-                    <td class="tg-0lax">Latitude of the listing</td>
-                </tr>
-                <tr>
-                    <td class="tg-0lax">longitude</td>
-                    <td class="tg-0lax">Longitude of the listing</td>
-                </tr>
-                <tr>
-                    <td class="tg-0lax">last_scraped</td>
-                    <td class="tg-0lax">Date that the information was last scraped</td>
-                </tr>
-                <tr>
-                    <td class="tg-0lax">host_id</td>
-                    <td class="tg-0lax">Host ID</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">host_name</td>
-                    <td class="tg-0lax">Host Name</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">host_listings_count</td>
-                    <td class="tg-0lax">Number of Listings Held by the Host</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">neighbourhood_cleansed</td>
-                    <td class="tg-0lax">Neighbourhood</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">neighbourhood_group_cleansed</td>
-                    <td class="tg-0lax">Neighbourhood Group</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">room_type</td>
-                    <td class="tg-0lax">Room Type</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">accommodates</td>
-                    <td class="tg-0lax">Number of Accommodates</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">price</td>
-                    <td class="tg-0lax">Price of the Listing</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">minimum_nights</td>
-                    <td class="tg-0lax">Minimum Number of Nights</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">maximum_nights</td>
-                    <td class="tg-0lax">Maximum Number of Nights</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">number_of_reviews</td>
-                    <td class="tg-0lax">Number of Reviews</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">review_scores_rating</td>
-                    <td class="tg-0lax">Overall Rating Review Score </td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">review_scores_accuracy</td>
-                    <td class="tg-0lax">Accuracy Review Score</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">review_scores_cleanliness</td>
-                    <td class="tg-0lax">Cleanliness Review Score</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">review_scores_checkin</td>
-                    <td class="tg-0lax">Checkin Review Score</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">review_scores_communication</td>
-                    <td class="tg-0lax">Communication Review Score</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">review_scores_location</td>
-                    <td class="tg-0lax">Location Review Score</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">review_scores_value</td>
-                    <td class="tg-0lax">Value Review Score</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">reviews_per_month</td>
-                    <td class="tg-0lax">Average Number of Reviews per Month</td>
-                  </tr>
-            </tbody>
-        </table>
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-0lax"><b>Variable Name</b></th>
+            <th class="tg-0lax"><b>Details</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-0lax">id</td>
+            <td class="tg-0lax">Listing ID</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">listing_url</td>
+            <td class="tg-0lax">Listing URL</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">name</td>
+            <td class="tg-0lax">Listing Name</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">latitude</td>
+            <td class="tg-0lax">Latitude of the listing</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">longitude</td>
+            <td class="tg-0lax">Longitude of the listing</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">last_scraped</td>
+            <td class="tg-0lax">Date that the information was last scraped</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">host_id</td>
+            <td class="tg-0lax">Host ID</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">host_name</td>
+            <td class="tg-0lax">Host Name</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">host_listings_count</td>
+            <td class="tg-0lax">Number of Listings Held by the Host</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">neighbourhood_cleansed</td>
+            <td class="tg-0lax">Neighbourhood</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">neighbourhood_group_cleansed</td>
+            <td class="tg-0lax">Neighbourhood Group</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">room_type</td>
+            <td class="tg-0lax">Room Type</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">accommodates</td>
+            <td class="tg-0lax">Number of Accommodates</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">price</td>
+            <td class="tg-0lax">Price of the Listing</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">minimum_nights</td>
+            <td class="tg-0lax">Minimum Number of Nights</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">maximum_nights</td>
+            <td class="tg-0lax">Maximum Number of Nights</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">number_of_reviews</td>
+            <td class="tg-0lax">Number of Reviews</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">review_scores_rating</td>
+            <td class="tg-0lax">Overall Rating Review Score</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">review_scores_accuracy</td>
+            <td class="tg-0lax">Accuracy Review Score</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">review_scores_cleanliness</td>
+            <td class="tg-0lax">Cleanliness Review Score</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">review_scores_checkin</td>
+            <td class="tg-0lax">Checkin Review Score</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">review_scores_communication</td>
+            <td class="tg-0lax">Communication Review Score</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">review_scores_location</td>
+            <td class="tg-0lax">Location Review Score</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">review_scores_value</td>
+            <td class="tg-0lax">Value Review Score</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">reviews_per_month</td>
+            <td class="tg-0lax">Average Number of Reviews per Month</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-        <h3> Neighborhood Map </h3>
+    <h3>Choropleth Map of NYC Neighborhoods</h3>
 
-        <div class = 'center'>
-            <iframe src="chloropleth.html" width="80%" height="400px" frameborder="0"></iframe>
-        </div>
+    <p>
+      In this chloropleth map showcasing NYC's Airbnb landscape, we've utilized
+      Shapely points to pinpoint the precise locations of listings within the
+      dataset. By organizing listings according to neighborhood, we offer
+      insightful average prices and review scores for each area. Employing
+      convex hull polygons, we outline the geographic boundaries of these
+      neighborhoods, enhancing them with important details such as average price
+      and review score. The color scheme intuitively represents the relative
+      average price of each neighborhood, enabling users to swiftly identify
+      areas within their budget. Hovering over the polygons reveals the names of
+      neighborhoods, while clicking provides comprehensive averages for price
+      and review scores. This interactive feature allows potential customers to
+      identify neighborhoods that fit their budget and review score standards,
+      facilitating informed decision-making.
+    </p>
 
+    <div class="center">
+      <iframe
+        src="chloropleth.html"
+        width="80%"
+        height="400px"
+        frameborder="0"
+      ></iframe>
+    </div>
+
+    <p>
+      Generally, the majority of neighborhoods in NYC offer prices below $250
+      per night, though a few, such as Tribeca and Prospect Park, boast average
+      prices of $559.38 and $501.50 per night, respectively. Additionally, the
+      average review scores tend to be consistently high, with most
+      neighborhoods receiving scores above 4.5. The interactive map provides
+      users with the opportunity to explore the distribution of prices and
+      review scores across NYC neighborhoods, empowering them to make
+      well-informed decisions about where to stay according to their preferences
+      and budget constraints.
+    </p>
+
+    <h3>Bar Chart: Average Price by Room Type and Neighborhood</h3>
+    <div class="container">
+      <div class="image">
+        <img
+          src="average_price_by_room_neighborhood.png"
+          style="max-width: 100%; height: auto"
+        />
+      </div>
+      <div class="text">
         <p>
-          In this chloropleth map exploring NYC's Airbnb landscape, we've employed Shapely points to mark listing locations within the dataset. 
-          By grouping listings by neighborhood, we provide insightful averages for both price and review scores in each area. 
-          Using convex hull polygons, we delineate the geographic extent of these neighborhoods, enriching them with details such as average price and review score. 
-          The color visually indicates the relative average price of the neighborhood, allowing users to quickly identify neighborhoods within their budget. 
-          Hovering over polygons reveals neighborhood names, while clicking provides detailed averages for price and review scores, 
-          allowing for an engaging exploration of NYC's diverse neighborhoods and their Airbnb offerings.
+          The bar chart illustrates the average prices of various room types
+          across neighborhoods in New York City, providing customers with
+          valuable insights for their accommodation choices. It underscores
+          significant price discrepancies among neighborhoods and offers clarity
+          on the most popular room types in each area. Each bar represents the
+          average price of a specific room type within a neighborhood, serving
+          as visual cues that highlight price disparities among neighborhoods.
+          The x-axis indicates different neighborhoods, organizing the data
+          spatially, while the y-axis represents average prices, facilitating
+          comparisons across room types and neighborhoods. This visual
+          representation enables customers to easily pinpoint budget-friendly
+          options and grasp market trends, empowering them to make well-informed
+          decisions tailored to their preferences and budget constraints during
+          their stay in New York City.
         </p>
-
-        <h3>Scatterplot: Price vs. # of Reviews</h3>
-
-        <div class = 'center'>
-            <iframe src="scatter_altair.html" width="80%" height="400px" frameborder="0"></iframe>
-        </div>
-
         <p>
-          In this scatter plot, we showcase the relationship between price and the number of reviews for a random sample of 5,000 listings.
-          We limited the price to under $3000 because the majority of the listings were on the lower end between $0 and $200, but there were a few high-price outliers around $5000, 
-          which made the chart very difficult to comprehend. Each circle on the plot represents a listing, positioned according to its price and number of reviews. 
-          The circles are color-coded to represent different room types. This plot allows customers to assess listing value and popularity by correlating price with review counts,
-          The interactive tool also allows customers to choose which room type they would like to view, 
-          with the chart scaling to show only the listings of that type, showing users the general price and review distribution for a specific room type.
-          Our visualization reveals no clear correlation between price and the number of reviews, with variations observed across room types,
-          while the color coding helps them find accommodations that align with their preferences and needs.
+          The bar chart vividly illustrates that Manhattan boasts the highest
+          average price across all room types, particularly for hotel rooms.
+          This observation highlights Manhattan's premium status in the
+          accommodation market and highlights the significant price discrepancy
+          between this borough and others in New York City.
         </p>
+      </div>
+    </div>
 
-        <h3>Scatterplot: Different Review Attributes</h3>
-
-        <div class = 'center'>
-            <iframe src="scatter.html" width="80%" height="400px" frameborder="0"></iframe>
-        </div>
-
+    <h3>Heatmap: Distribution of Room Types Across NYC Neighborhoods</h3>
+    <div class="container">
+      <div class="text">
         <p>
-          In our data, we found that in addition to the overall review score that a listing can receive, there are also subattributes that contribute to the review score, allowing
-          users to rate an Airbnb listing's location, cleanliness, check-in process, etc. As such, this interactive scatter plot serves to give a general distribution of overall review scores
-          across NYC and choose any of these subattributes to view on. The scatter plot is organized similar to a geographical map, with the xy-positions of each circle mapped to the latitude
-          and longitude of the listing. The color of each point refers to the review score attribute that is being displayed, with darker shades indicating higher scores and lighter shades indicating lower scores,
-          on a 1-5 scale.
-          We did this because we felt that users would want to see which listings had lower scores more easily so as to avoid those few listings, since there is a majority of higher scored listings
-          and the lighter shades pop out more within the sea of darker circles. The user can use the dropdown menu at the top to choose which subattribute they want to view the distribution of.
+          The heatmap offers guests valuable insights into the diverse range of
+          room types available across New York City's neighborhoods. Each cell
+          in the heatmap represents a combination of room type and neighborhood,
+          with the presence of a mark indicating the count of listings with that
+          specific room type in the corresponding neighborhood. The x-axis
+          denotes different room types, while the y-axis represents neighborhood
+          groups, offering spatial organization for identifying room type
+          distribution. The color of each cell encodes the count of listings,
+          with darker shades indicating higher counts and lighter shades
+          representing lower counts, facilitating quick perception of room type
+          frequencies. Numeric annotations within cells provide precise
+          quantitative information, supplementing the visual encoding with exact
+          counts of listings.
         </p>
-
         <p>
-          In addition, we included a tooltip feature allowing users to hover over points and get a summary of customer-relevant information of the listing, including the name of the listing, price, room type, 
-          neighborhood, overall review score, and how many people it accommodates. One example use case of this plot would be if a customer is trying to decide where they want to stay,
-          they can select the location subattribute of the review score and find clusters of high or low review scores, which would indicate how previous customers felt about certain locations 
-          and neighborhoods. With this data, we can see that downtown Manhattan and the area surrounding it like western Brooklyn have consistently high review scores on the location attribute, which could be
-          something that a customer could consider in choosing where to stay. Similar use cases can be done using the other subattributes. Overall, this visualization focuses on the numerical
-          review scores of Airbnb listings, aiming to provide guided insights of neighborhood trends in terms of past customer reviews.
+          The heatmap reveals the prevalence of different accommodation types
+          across neighborhoods, with entire homes/apartments dominating in
+          Manhattan, followed by Brooklyn and Queens. It also highlights the
+          popularity of private rooms in Brooklyn, followed bt Manhattan and
+          Queens. This information helps guests align their accommodation
+          preferences with neighborhood offerings, facilitating informed
+          decisions tailored to their needs and budget constraints.
         </p>
+      </div>
+      <div class="image">
+        <img src="heatmap.png" style="max-width: 100%; height: auto" />
+      </div>
+    </div>
 
-        <h3>Findings and Summary</h3>
+    <h3>Interactive Scatterplot: Price vs. Number of Reviews</h3>
 
-        <p>
-          Main findings:
-          <ul>
-            <li>Manhattan exhibits the highest average price across all room types, indicating its premium status in the market.</li>
-            <li>Entire homes/apartments in Manhattan boast the highest number of listings, reflecting strong demand in this area.</li>
-            <li>The choropleth map reveals that many neighborhoods in NYC offer relatively low average prices, providing budget-friendly options for travelers.</li>
-            <li>While most listings in NYC receive high average score ratings, there are scattered instances of lower ratings across the city.</li>
-            <li>Our analysis suggests no clear correlation between price and the number of reviews, emphasizing the need for customers to consider multiple factors when making booking decisions.</li>
-          </ul>
-        </p>
+    <p>
+      In the interactive scatter plot below, we illustrate the relationship
+      between price and the number of reviews for a random sample of 5,000
+      listings. To enhance clarity, we capped the price at under $3,000, as the
+      majority of listings fell within the lower price range of $0 to $200.
+      However, there were a few high-price outliers around $5,000, which could
+      obscure the chart's readability. Each circle on the plot represents a
+      listing, positioned based on its price and number of reviews. These
+      circles are color-coded to denote different room types.
+    </p>
 
-        <p>
-          In conclusion, our objective was to give a general analysis of NYC Airbnb data with a focus on review scores to generate insights that would be relevant and useful to 
-          a potential Airbnb customer. Future work may include exploring the influence of tourist attractions and hubs on pricing and popularity, perhaps generating predictive models
-          to forecast price and desirability of a listing using various features like location and room type.
-        </p>
+    <div class="center">
+      <iframe
+        src="scatter_altair.html"
+        width="80%"
+        height="400px"
+        frameborder="0"
+      ></iframe>
+    </div>
 
-        <p>
-          For those interested in the project, please contact Xiaoyi Yang (xiaoy.yang@northeastern.edu)
-        </p>
-</body>
+    <p>
+      This scatterplot enables customers to evaluate listing value and
+      popularity by correlating price with review counts. Additionally, our
+      interactive tool allows users to select their preferred room type,
+      dynamically scaling the chart to display only listings of that type. This
+      feature provides users with a clearer view of the general price and review
+      distribution for a specific room type.
+    </p>
 
+    <p>
+      Despite our analysis, we found no clear correlation between price and the
+      number of reviews, with variations observed across different room types.
+      However, the color coding facilitates users in finding accommodations that
+      align with their preferences and needs, aiding them in making informed
+      decisions.
+    </p>
+
+    <h3>Interactive Scatterplot: Various Review Score Attributes</h3>
+
+    <p>
+      In our dataset, we found that Airbnb listings are evaluated on various
+      subattributes like location, cleanliness, and check-in process, which
+      contribute to the overall review score. Our interactive scatter plot
+      provides a comprehensive overview of overall review scores across NYC,
+      allowing users to explore individual subattributes. Positioned similarly
+      to a geographical map, each circle represents a listing's location based
+      on latitude and longitude. The color of each point corresponds to the
+      displayed review score attribute, with darker shades indicating higher
+      scores and lighter shades indicating lower scores on a scale of 1 to 5.
+      This color scheme aids users in quickly identifying listings with lower
+      scores amidst the majority of higher-scored listings.
+    </p>
+    <p>
+      Moreover, users can utilize the dropdown menu at the top of the plot to
+      select their preferred subattribute for analysis. This feature enables
+      users to explore the distribution of review scores based on specific
+      criteria, empowering them to make more informed decisions when choosing
+      accommodations.
+    </p>
+
+    <div class="center">
+      <iframe
+        src="scatter.html"
+        width="80%"
+        height="400px"
+        frameborder="0"
+      ></iframe>
+    </div>
+
+    <p>
+      Additionally, we've implemented a tooltip feature that allows users to
+      hover over data points to access essential details about each listing.
+      This includes the listing's name, price, room type, neighborhood, overall
+      review score, and accommodation capacity.
+    </p>
+    <p>
+      For example, a customer considering where to stay can utilize this feature
+      by selecting the location subattribute of the review score. This enables
+      them to identify clusters of high or low review scores, indicating
+      previous customers' sentiments about specific locations and neighborhoods.
+      For instance, our data shows that downtown Manhattan and surrounding areas
+      like western Brooklyn consistently receive high review scores for location
+      attributes. This information could influence a customer's decision when
+      choosing where to stay.
+    </p>
+    <p>
+      Similar analyses can be conducted using other subattributes, providing
+      users with comprehensive insights into neighborhood trends based on past
+      customer reviews. Ultimately, this visualization aims to offer guided
+      insights into the numerical review scores of Airbnb listings, assisting
+      users in making informed decisions regarding accommodation choices.
+    </p>
+
+    <h3>Summary and future work</h3>
+
+    <p>The main findings of our analysis include:</p>
+    <ul>
+      <li>
+        Manhattan exhibits the highest average price across all room types,
+        indicating its premium status in the market. Additionally, entire
+        homes/apartments in Manhattan have the highest number of listings,
+        reflecting strong demand in this area.
+      </li>
+      <li>
+        The choropleth map reveals that many neighborhoods in NYC offer
+        relatively low average prices, providing budget-friendly options for
+        travelers. Despite this, there are scattered instances of lower ratings
+        across the city, highlighting the need for customers to consider
+        multiple factors when making booking decisions.
+      </li>
+      <li>
+        Our analysis suggests no clear correlation between price and the number
+        of reviews, further emphasizing the complexity of factors influencing
+        consumer choices.
+      </li>
+    </ul>
+
+    <p>Moving forward, potential next steps for research include:</p>
+    <ul>
+      <li>
+        Exploring the influence of tourist attractions and transportation hubs
+        on pricing and popularity.
+      </li>
+      <li>
+        Generating predictive models to forecast price and desirability of a
+        listing using various features like location and room type.
+      </li>
+      <li>
+        Conducting sentiment analysis on customer reviews to identify common
+        themes and sentiments.
+      </li>
+      <li>
+        Investigating seasonal variations in popularity and price, considering
+        factors like weather, holidays, and major events.
+      </li>
+    </ul>
+    <p>
+      For those interested in the project, please contact: Tri Watanasuparp
+      (watanasuparp.t@northeastern.edu) and Jonathan Hong
+      (hong.jo@northeastern.edu). Thank you!
+    </p>
+  </body>
 </html>
