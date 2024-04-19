@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interactive Plot with D3.js</title>
     <style>
-        /* Add your CSS styling here */
-        .tooltip {
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            pointer-events: none;
-            display: none;
-        }
+      /* Add your CSS styling here */
+      .tooltip {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        pointer-events: none;
+        display: none;
+      }
     </style>
-</head>
-<body>
-    <h1>
-        Scatterplot displaying different review score attributes for NYC Airbnb listings
-      </h1>
+  </head>
+  <body>
+    <h1>NYC Airbnb Listings' Various Review Score Attributes</h1>
 
     <!-- Dropdown menu to select column -->
     <select id="column-dropdown">
-        <!-- Options will be populated dynamically -->
+      <!-- Options will be populated dynamically -->
     </select>
     <div id="plot"></div>
 
@@ -33,7 +31,7 @@
 
     <div class="tooltip"></div>
 
-    <script src='https://d3js.org/d3.v7.min.js'></script>
-    <script src='main.js'></script>
-</body>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
