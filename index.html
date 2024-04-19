@@ -152,14 +152,56 @@
             <iframe src="chloropleth.html" width="80%" height="400px" frameborder="0"></iframe>
         </div>
 
+        <p>
+          In this chloropleth map exploring NYC's Airbnb landscape, we've employed Shapely points to mark listing locations within the dataset. 
+          By grouping listings by neighborhood, we provide insightful averages for both price and review scores in each area. 
+          Using convex hull polygons, we delineate the geographic extent of these neighborhoods, enriching them with details such as average price and review score. 
+          The color visually indicates the relative average price of the neighborhood, allowing users to quickly identify neighborhoods within their budget. 
+          Hovering over polygons reveals neighborhood names, while clicking provides detailed averages for price and review scores, 
+          allowing for an engaging exploration of NYC's diverse neighborhoods and their Airbnb offerings.
+        </p>
+
+        <h3>Scatterplot: Price vs. # of Reviews</h3>
+
         <div class = 'center'>
             <iframe src="scatter_altair.html" width="80%" height="400px" frameborder="0"></iframe>
         </div>
 
+        <p>
+          In this scatter plot, we showcase the relationship between price and the number of reviews for a random sample of 5,000 listings.
+          We limited the price to under $3000 because the majority of the listings were on the lower end between $0 and $200, but there were a few high-price outliers around $5000, 
+          which made the chart very difficult to comprehend. Each circle on the plot represents a listing, positioned according to its price and number of reviews. 
+          The circles are color-coded to represent different room types. This plot allows customers to assess listing value and popularity by correlating price with review counts,
+          The interactive tool also allows customers to choose which room type they would like to view, 
+          with the chart scaling to show only the listings of that type, showing users the general price and review distribution for a specific room type.
+          Our visualization reveals no clear correlation between price and the number of reviews, with variations observed across room types,
+          while the color coding helps them find accommodations that align with their preferences and needs.
+        </p>
+
+        <h3>Scatterplot: Different Review Attributes</h3>
 
         <div class = 'center'>
             <iframe src="scatter.html" width="80%" height="400px" frameborder="0"></iframe>
         </div>
+
+        <p>
+          In our data, we found that in addition to the overall review score that a listing can receive, there are also subattributes that contribute to the review score, allowing
+          users to rate an Airbnb listing's location, cleanliness, check-in process, etc. As such, this interactive scatter plot serves to give a general distribution of overall review scores
+          across NYC and choose any of these subattributes to view on. The scatter plot is organized similar to a geographical map, with the xy-positions of each circle mapped to the latitude
+          and longitude of the listing. The color of each point refers to the review score attribute that is being displayed, with darker shades indicating higher scores and lighter shades indicating lower scores,
+          on a 1-5 scale.
+          We did this because we felt that users would want to see which listings had lower scores more easily so as to avoid those few listings, since there is a majority of higher scored listings
+          and the lighter shades pop out more within the sea of darker circles. The user can use the dropdown menu at the top to choose which subattribute they want to view the distribution of.
+        </p>
+
+        <p>
+          In addition, we included a tooltip feature allowing users to hover over points and get a summary of customer-relevant information of the listing, including the name of the listing, price, room type, 
+          neighborhood, overall review score, and how many people it accommodates. One example use case of this plot would be if a customer is trying to decide where they want to stay,
+          they can select the location subattribute of the review score and find clusters of high or low review scores, which would indicate how previous customers felt about certain locations 
+          and neighborhoods. With this data, we can see that downtown Manhattan and the area surrounding it like western Brooklyn have consistently high review scores on the location attribute, which could be
+          something that a customer could consider in choosing where to stay. Similar use cases can be done using the other subattributes. Overall, this visualization focuses on the numerical
+          review scores of Airbnb listings, aiming to provide guided insights of neighborhood trends in terms of past customer reviews.
+        </p>
 </body>
 
 </html>
